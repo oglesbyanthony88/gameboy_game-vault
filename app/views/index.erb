@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<head>
+	<title>Gameboy Game Vault</title>
+</head>
+
+<body>
+	<h1>Welcome to Gameboy Game Vault</h1>
+	<p> This is a place where you can store and organize your gameboy games.</p>
+	<br>
+	<p>Track What you have and keep a wishlist!</p>
+	<br>
+	<br>
+	<nav>
+  <% if logged_in? %>
+
+    <!-- <a href="/tweets/new"> Create Tweet </a> -->
+    <a href="/logout"> Log Out </a>
+    <p>Welcome, <%=current_user.username %></p>
+
+  <% else %>
+    <a href="/signup">Sign Up</a>
+    <a href="/login"> Sign In </a>
+  <%end %>
+
+</nav>
+	
+</body>

@@ -1,0 +1,6 @@
+<p> Your Vault, <%= @user.username %>
+<% @user.games.each do |gamme| %>
+  <div>
+    <%= game.content %>
+  </div>
+<% end %>
