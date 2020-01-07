@@ -8,6 +8,7 @@ class CreateGames < ActiveRecord::Migration
   		t.boolean :authentic
   		t.text :releasedate
   		t.text :condition
+      t.integer :user_id
 
       t.timestamps null: false
   	end
