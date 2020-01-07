@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20200107210754) do
     t.datetime "updated_at",      null: false
   end
 
-  create_table "wishlist", force: :cascade do |t|
+  create_table "wishlists", force: :cascade do |t|
     t.text     "gamename"
     t.text     "console_format"
     t.integer  "user_id"
