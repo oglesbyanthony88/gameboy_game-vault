@@ -38,18 +38,18 @@ class GamesController < ApplicationController
     end
   end
 
-#   get '/tweets/:id/edit' do
-#     if logged_in?
-#       @tweet = Tweet.find_by_id(params[:id])
-#       if @tweet && @tweet.user == current_user
-#         erb :'tweets/edit_tweet'
-#       else
-#         redirect to '/tweets'
-#       end
-#     else
-#       redirect to '/login'
-#     end
-#   end
+  get '/games/:id/edit' do
+    if logged_in?
+      @game = Game.find_by_id(params[:id])
+      if @game && @game.user == current_user
+        erb :'games/editgame'
+      else
+        redirect to '/library'
+      end
+    else
+      redirect to '/login'
+    end
+  end
 
 #   patch '/tweets/:id' do
 #     if logged_in?
