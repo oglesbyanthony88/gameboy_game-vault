@@ -1,37 +1,34 @@
-# class TweetsController < ApplicationController
-#   get '/tweets' do
-#     if logged_in?
-#       @tweets = Tweet.all
-#       erb :'tweets/tweets'
-#     else
-#       redirect to '/login'
-#     end
-#   end
+class GamesController < ApplicationController
+  get '/library' do
+    if logged_in?
+      @games = Games.all
+      erb :'games/library'
+    else
+      redirect to '/login'
+    end
+  end
 
-#   get '/tweets/new' do
-#     if logged_in?
-#       erb :'tweets/create_tweet'
-#     else
-#       redirect to '/login'
-#     end
-#   end
+  get '/games/addgame' do
+    if logged_in?
+      erb :'games/addgame'
+    else
+      redirect to '/login'
+    end
+  end
 
-#   post '/tweets' do
-#     if logged_in?
-#       if params[:content] == ""
-#         redirect to "/tweets/new"
-#       else
-#         @tweet = current_user.tweets.build(content: params[:content])
-#         if @tweet.save
-#           redirect to "/tweets/#{@tweet.id}"
-#         else
-#           redirect to "/tweets/new"
-#         end
-#       end
-#     else
-#       redirect to '/login'
-#     end
-#   end
+  post '/games' do
+    if logged_in?
+      if params[:gamename] == "" || params[:releasedate] == "" || params[:developer] == "" || params[:publisher] == "" || params[:authentic] == "" || params[:releasedate] == "" || params[:condition] == ""
+        redirect to "/games/addgame"
+      else
+        game = current_user.game.build(gamename: => params[:gamename], :console_format => params[:console_format], :developer => params[:developer], :publisher => params[:publisher], :authentic => params[:authentic], :releasedate => params[:releasedate], :condition => params[:condition])
+        game.save
+        redirect to "/games/library"
+      end
+    else
+      redirect to '/login'
+    end
+  end
 
 #   get '/tweets/:id' do
 #     if logged_in?
@@ -87,4 +84,4 @@
 #       redirect to '/login'
 #     end
 #   end
-# end
+ end
