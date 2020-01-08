@@ -1,10 +1,11 @@
-<p>This will list the Games</p>
+
 
 <p> Welcome, <%= current_user.username %>
-<h2> Games </h2>
+<h2> Game Vault </h2>
 
-<% @games.each do |game| %>
+<% current_user.games.each do |game| %>
   <div>
-    <%= game.gamename %>
+    
+    <a href="/games/<%= game.id %>/showgame"><%= game.gamename %></a>
   </div>
 <% end %>

@@ -11,12 +11,18 @@
 <p>Release Date: <%= @game.releasedate %>
 	
 <p>Condition: <%= @game.condition %>	
-
+<br>
+<br>
+<br>
+<a href="/library"> Vault </a>
+<br>
+<br>
+<a href="/games/<%=@game.id%>/edit">Edit Game </a>
+<br>
+<br>
+<br>
 <form method="post" action="/games/<%=@game.id%>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
   <br>
-  <input type="submit" value="Delete Tweet">
+  <input type="submit" value="Delete Game">
 </form>
-<br>
-
-<a href="/games/<%=@game.id%>/edit">Edit Game </a>
