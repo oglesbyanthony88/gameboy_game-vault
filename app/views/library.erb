@@ -9,3 +9,11 @@
     <a href="/games/<%= game.id %>/showgame"><%= game.gamename %></a>
   </div>
 <% end %>
+
+  <br>
+  <br>
+  <form method="get" action="games/addgame">
+  <input id="hidden" type="hidden" name="_method" value="Add Game">
+  <br>
+  <input type="submit" value="Add Game">
+  </form>

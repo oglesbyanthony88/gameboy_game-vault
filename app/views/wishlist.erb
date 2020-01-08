@@ -1,0 +1,16 @@
+<p> Hey, <%= current_user.username %>
+<h2> Wishlist </h2>
+
+<% current_user.wishlist.each do |wishlist| %>
+  <div>
+    <%= wishlist.gamename %>
+  </div>
+<% end %>
+
+  <br>
+  <br>
+  <form method="get" action="wishlist/addgamewish">
+  <input id="hidden" type="hidden" name="_method" value="Add Game Wish">
+  <br>
+  <input type="submit" value="Add to Wishlist">
+  </form>

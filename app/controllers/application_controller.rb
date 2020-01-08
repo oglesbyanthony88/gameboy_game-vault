@@ -9,7 +9,7 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "game_boy_vault_session"
   end
 
-  get '/' do
+  get '/home' do
     erb :index
   end
 

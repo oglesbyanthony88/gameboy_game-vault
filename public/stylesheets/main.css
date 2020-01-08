@@ -11,6 +11,7 @@
     width: 100%;
   }
 
+
   /* --- Welcome Page Styles --- */
   body {
     background-color: #C4C1BC;
@@ -18,6 +19,24 @@
     font-family: 'Early GameBoy';
     line-height: 28px;
     text-align: center;
+  }
+  .navbar {
+    background-color: #959095
+    overflow: hidden;
+  }
+
+  .navbar a {
+    float: left;
+    color: #A32655;
+    text-align: right;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 12px;
+  }
+
+  .navbar a:hover {
+    background-color: #ddd;
+    color: black;
   }
 
   .wrapper {
@@ -42,7 +61,7 @@
   border-radius: 25px;
   background: #9bbc0f;
   padding: 10px;
-  width: 200px;
+  width: 250px;
   height: 35px;
   font-family: 'Early GameBoy'
   }

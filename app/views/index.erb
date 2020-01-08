@@ -6,7 +6,7 @@
 
 <body>
 	<h1>Welcome to Gameboy Game Vault</h1>
-	<p> This is a place where you can store and organize your gameboy games.</p>
+	<p> This is a place where you can organize your gameboy games.</p>
 	<br>
 	<p>Track What you have and keep a wishlist!</p>
 	<br>
@@ -14,14 +14,7 @@
 	<nav>
   <% if logged_in? %>
 	<p>Welcome, <%=current_user.username %></p>
-    <ul>	
-    
-    <li><a href="/games/addgame"> Add A Game </a></li>
-    <li><a href="/wishlist/addgamewish"> Add A Game to Wishlist </a></li>
-    <li><a href="/library"> Game Library </a></li>
-    <li><a href="/logout"> Log Out </a></li>
-    
-	</ul>
+
 
   <% else %>
     <a href="/signup">Sign Up</a>

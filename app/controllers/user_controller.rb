@@ -44,13 +44,13 @@ class UsersController < ApplicationController
   get '/logout' do
     if logged_in?
       session.destroy
-      redirect to '/login'
+      redirect to '/home'
     else
-      redirect to '/'
+      redirect to '/home'
     end
   end
 
   get '/users/:id' do
-    erb :'/users/show'
+    erb :index
   end
 end

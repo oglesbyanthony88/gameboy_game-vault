@@ -6,6 +6,7 @@ end
 
 use Rack::MethodOverride
 
+use WishlistController
 use GamesController
 use UsersController
 run ApplicationController
