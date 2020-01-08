@@ -32,7 +32,7 @@ class GamesController < ApplicationController
   get '/games/:id' do
     if logged_in?
       @game = Game.find_by_id(params[:id])
-      erb :'/games/editgame'
+      erb :'/games/showgame'
     else
       redirect to '/login'
     end
@@ -72,15 +72,15 @@ class GamesController < ApplicationController
 #     end
 #   end
 
-#   delete '/tweets/:id/delete' do
-#     if logged_in?
-#       @tweet = Tweet.find_by_id(params[:id])
-#       if @tweet && @tweet.user == current_user
-#         @tweet.delete
-#       end
-#       redirect to '/tweets'
-#     else
-#       redirect to '/login'
-#     end
-#   end
+  delete '/games/:id/delete' do
+    if logged_in?
+      @game = Game.find_by_id(params[:id])
+      if @game && @game.user == current_user
+        @game.delete
+      end
+      redirect to '/library'
+    else
+      redirect to '/login'
+    end
+  end
  end
