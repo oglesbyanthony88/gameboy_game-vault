@@ -1,8 +1,0 @@
-<p><%= game.content %>
-
-<form method="post" action="/games/<%=game.id%>/delete">
-  <input id="hidden" type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete Tweet">
-</form>
-
-<a href="/games/<%=game.id%>/edit">Edit Tweet </a>

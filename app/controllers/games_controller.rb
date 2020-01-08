@@ -2,8 +2,8 @@ class GamesController < ApplicationController
   
   get '/library' do
     if logged_in?
-      @games = Games.all
-      erb :'games/library'
+      @games = Game.all
+      erb :'/library'
     else
       redirect to '/login'
     end
@@ -19,11 +19,11 @@ class GamesController < ApplicationController
 
   post '/games' do
     if logged_in?
-        game = current_user.games.build(gamename: params[:gamename], console_format: params[:console_format],
+        @game = current_user.games.build(gamename: params[:gamename], console_format: params[:console_format],
          developer:  params[:developer], publisher: params[:publisher], authentic: params[:authentic],
           releasedate: params[:releasedate], condition: params[:condition])
-        game.save
-        redirect to "/games/#{game.id}"
+        @game.save
+        redirect to "/games/#{@game.id}"
     else
       redirect to '/login'
     end
@@ -31,8 +31,8 @@ class GamesController < ApplicationController
 
   get '/games/:id' do
     if logged_in?
-      game = Games.find_by_id(params[:id])
-      erb :'/games/showgame'
+      @game = Game.find_by_id(params[:id])
+      erb :'/games/editgame'
     else
       redirect to '/login'
     end

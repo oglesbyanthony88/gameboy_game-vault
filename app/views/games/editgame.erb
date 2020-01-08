@@ -1,7 +1,27 @@
-<h2> Edit Tweet </h2>
+<h2> Edit Game </h2>
 
-<form method="post" action="/tweets/<%=game.id%>">
+<form method="post" action="/tweets/<%=@game.id%>">
   <input id="hidden" type="hidden" name="_method" value="PATCH">
-  <input type="text" name="content" value="<%= @tweet.content %>">
+  Game Name
+  <input type="text" name="gamename" value="<%= @game.gamename %>">
+  <br>
+  Console
+  <input type="text" name="console_format" value="<%= @game.console_format %>">
+  <br>
+  Developer
+  <input type="text" name="developer" value="<%= @game.developer %>">
+  <br>
+  Publisher
+  <input type="text" name="publisher" value="<%= @game.publisher %>">
+  <br>
+  Athentic
+  <input type="text" name="authentic" value="<%= @game.authentic %>">
+  <br>
+  Release Date
+  <input type="text" name="releasedate" value="<%= @game.releasedate %>">
+  <br>
+  Condition
+  <input type="text" name="condition" value="<%= @game.condition %>">
+  <br>
   <input type="submit" value="submit">
 </form>

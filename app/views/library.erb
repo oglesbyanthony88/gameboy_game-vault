@@ -1,0 +1,10 @@
+<p>This will list the Games</p>
+
+<p> Welcome, <%= current_user.username %>
+<h2> Games </h2>
+
+<% @games.each do |game| %>
+  <div>
+    <%= game.gamename %>
+  </div>
+<% end %>
