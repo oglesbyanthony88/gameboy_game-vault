@@ -3,9 +3,11 @@
 
 <% current_user.wishlist.each do |wishlist| %>
   <div>
-    <%= wishlist.gamename %>
+     <a href="/wishlist/<%= wishlist.id %>/showwishgame"><%= wishlist.gamename %></a>
   </div>
 <% end %>
+
+
 
   <br>
   <br>

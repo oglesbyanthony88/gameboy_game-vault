@@ -1,6 +1,6 @@
 <h2> Edit Game </h2>
 
-<form method="post" action="/tweets/<%=@game.id%>">
+<form method="post" action="/games/<%=@game.id%>">
   <input id="hidden" type="hidden" name="_method" value="PATCH">
   Game Name
   <input type="text" name="gamename" value="<%= @game.gamename %>">

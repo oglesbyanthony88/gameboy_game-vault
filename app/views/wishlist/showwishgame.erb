@@ -1,0 +1,13 @@
+<p>Game Name: <%= @wishlist.gamename %>
+	
+<p>Console: <%= @wishlist.console_format %>
+
+	<br>
+	<br>
+	<br>
+
+<form method="post" action="/wishlist/<%=@wishlist.id%>/delete">
+<input id="hidden" type="hidden" name="_method" value="DELETE">
+<br>
+<input type="submit" value="Delete Game">
+</form>
