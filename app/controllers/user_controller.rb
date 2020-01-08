@@ -51,6 +51,6 @@ class UsersController < ApplicationController
   end
 
   get '/users/:id' do
-    "This will be the user show page"
+    erb :'/users/show'
   end
 end
