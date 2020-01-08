@@ -1,4 +1,5 @@
 class GamesController < ApplicationController
+  
   get '/library' do
     if logged_in?
       @games = Games.all
@@ -18,26 +19,24 @@ class GamesController < ApplicationController
 
   post '/games' do
     if logged_in?
-      if params[:gamename] == "" || params[:releasedate] == "" || params[:developer] == "" || params[:publisher] == "" || params[:authentic] == "" || params[:releasedate] == "" || params[:condition] == ""
-        redirect to "/games/addgame"
-      else
-        game = current_user.game.build(gamename: => params[:gamename], :console_format => params[:console_format], :developer => params[:developer], :publisher => params[:publisher], :authentic => params[:authentic], :releasedate => params[:releasedate], :condition => params[:condition])
+        game = current_user.games.build(gamename: params[:gamename], console_format: params[:console_format],
+         developer:  params[:developer], publisher: params[:publisher], authentic: params[:authentic],
+          releasedate: params[:releasedate], condition: params[:condition])
         game.save
-        redirect to "/games/library"
-      end
+        redirect to "/games/#{game.id}"
     else
       redirect to '/login'
     end
   end
 
-#   get '/tweets/:id' do
-#     if logged_in?
-#       @tweet = Tweet.find_by_id(params[:id])
-#       erb :'tweets/show_tweet'
-#     else
-#       redirect to '/login'
-#     end
-#   end
+  get '/games/:id' do
+    if logged_in?
+      game = Games.find_by_id(params[:id])
+      erb :'/games/showgame'
+    else
+      redirect to '/login'
+    end
+  end
 
 #   get '/tweets/:id/edit' do
 #     if logged_in?

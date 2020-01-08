@@ -13,10 +13,14 @@
 	<br>
 	<nav>
   <% if logged_in? %>
-
-    <!-- <a href="/tweets/new"> Create Tweet </a> -->
-    <a href="/logout"> Log Out </a>
-    <p>Welcome, <%=current_user.username %></p>
+	<p>Welcome, <%=current_user.username %></p>
+    <ul>	
+    
+    <li><a href="/games/addgame"> Add Games </a></li>
+    <li><a href="/games/library"> Game Library </a></li>
+    <li><a href="/logout"> Log Out </a></li>
+    
+	</ul>
 
   <% else %>
     <a href="/signup">Sign Up</a>
