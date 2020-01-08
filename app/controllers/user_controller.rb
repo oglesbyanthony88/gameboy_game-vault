@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     if !logged_in?
       erb :'users/signup', locals: {message: "Please sign up before you sign in"}
     else
-      redirect to '/games'
+      redirect to "users/#{user.id}"
     end
   end
 
@@ -27,8 +27,7 @@ class UsersController < ApplicationController
     if !logged_in?
       erb :'users/login'
     else
-      redirect to '/show'
-      erb :'users/show'
+      redirect to "users/#{user.id}"
     end
   end
 
