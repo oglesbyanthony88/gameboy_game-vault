@@ -18,8 +18,8 @@ class UsersController < ApplicationController
     else
       @user = User.new(:username => params[:username], :password => params[:password])
       @user.save
-      session[:user_id] = @user.id
-      redirect to '/games'
+      session[:user_id] = user.id
+      redirect to "users/#{user.id}"
     end
   end
 
@@ -35,8 +35,8 @@ class UsersController < ApplicationController
   post '/login' do
     user = User.find_by(:username => params[:username])
     if user && user.authenticate(params[:password])
-      session[:user_id] = @user.id
-      redirect to "users/#{@user.id}"
+      session[:user_id] = user.id
+      redirect to "users/#{user.id}"
     else
       redirect to '/signup'
     end
@@ -51,7 +51,7 @@ class UsersController < ApplicationController
     end
   end
 
-  get 'users/:id' do
-    erb :show
+  get '/users/:id' do
+    "This will be the user show page"
   end
 end
