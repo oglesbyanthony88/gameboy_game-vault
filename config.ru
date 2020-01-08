@@ -6,6 +6,6 @@ end
 
 use Rack::MethodOverride
 
-use GamesController
+# use GamesController
 use UsersController
 run ApplicationController
