@@ -6,7 +6,7 @@
 <% current_user.games.each do |game| %>
   <div>
     
-    <a href="/games/<%= game.id %>/showgame"><%= game.gamename %></a>
+    <a href="/games/<%= game.id %>"><%= game.gamename %></a>
   </div>
 <% end %>
 
