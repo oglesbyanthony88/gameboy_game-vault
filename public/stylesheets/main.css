@@ -13,10 +13,12 @@
 
 
   /* --- Welcome Page Styles --- */
+
+
   body {
     background-color: #C4C1BC;
     color: #21201E;
-    font-family: 'Early GameBoy';
+    font-family: 'Press Start 2P', cursive;
     line-height: 28px;
     text-align: center;
   }
@@ -63,7 +65,7 @@
   padding: 10px;
   width: 250px;
   height: 35px;
-  font-family: 'Early GameBoy'
+  font-family: 'Press Start 2P', cursive;
   }
 
   h1 {
