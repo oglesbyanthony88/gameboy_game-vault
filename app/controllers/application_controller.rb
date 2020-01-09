@@ -13,7 +13,7 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
-  get '/home'
+  get '/home' do
     erb :index
   end
 
@@ -29,4 +29,4 @@ class ApplicationController < Sinatra::Base
 
   end
 end
-end
+
