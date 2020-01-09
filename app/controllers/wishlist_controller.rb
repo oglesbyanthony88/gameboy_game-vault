@@ -28,7 +28,7 @@ get '/wishlist/addgamewish' do
     end
   end
 
-  get '/wishlist/:id/showwishgame' do
+  get '/wishlist/:id' do
     if logged_in?
       @wishlist = Wishlist.find_by_id(params[:id])
       if @wishlist && @wishlist.user == current_user
