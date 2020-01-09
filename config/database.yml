@@ -1,10 +1,11 @@
-default: &default
-  adapter: 'sqlite3'
-  database: 'db/development.sqlite'
-
 development:
-  <<: *default
-
-test:
-  <<: *default
-  database: 'db/test.sqlite'
+  adapter: postgresql
+  encoding: unicode
+  database: development
+  pool: 2
+production:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  host: <%= ENV['DATABASE_HOST'] %>
+  database: production
