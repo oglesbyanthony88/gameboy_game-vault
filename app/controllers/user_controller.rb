@@ -17,14 +17,13 @@ class UsersController < ApplicationController
     user = User.new(:username => params[:username], :password => params[:password])
     if user.save
       session[:user_id] = user.id
-      flash[:success] = "Account created successfully!"
       redirect '/login'
     else
       if user.errors.messages[:username]
-        flash[:username_error] = "Username #{user.errors.messages[:username][0]}"
+        redirect '/failure'
       end
       if user.errors.messages[:password]
-        flash[:password_error] = "Password #{user.errors.messages[:password][0]}"
+        redirect '/failure'
       end
       redirect '/signup'
     end
