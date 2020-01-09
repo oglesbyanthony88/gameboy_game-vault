@@ -12,16 +12,36 @@ class UsersController < ApplicationController
     end
   end
 
+
   post '/signup' do
-    if params[:username] == "" || params[:password] == ""
-      redirect to '/signup'
+    user = User.new(:username => params[:username], :password => params[:password])
+    if user.save
+      session[:user_id] = user.id
+      flash[:success] = "Account created successfully!"
+      redirect '/login'
     else
-      @user = User.new(:username => params[:username], :password => params[:password])
-      @user.save
-      session[:user_id] = @user.id
-      redirect to "users/#{@user.id}"
+      if user.errors.messages[:username]
+        flash[:username_error] = "Username #{user.errors.messages[:username][0]}"
+      end
+      if user.errors.messages[:password]
+        flash[:password_error] = "Password #{user.errors.messages[:password][0]}"
+      end
+      redirect '/signup'
     end
   end
+
+
+
+  # post '/signup' do
+  #   if params[:username] == "" || params[:password] == ""
+  #     redirect to '/signup'
+  #   else
+  #     @user = User.new(:username => params[:username], :password => params[:password])
+  #     @user.save
+  #     session[:user_id] = @user.id
+  #     redirect to "users/#{@user.id}"
+  #   end
+  # end
 
   get '/login' do
     if !logged_in?
