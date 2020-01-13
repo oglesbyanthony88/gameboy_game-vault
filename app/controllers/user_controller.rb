@@ -19,8 +19,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect '/login'
     else
-      flash[:notice] = "Username in use!"
-      redirect '/signup'
+      redirect '/signup', alert: "Username in use! Try again."
     end
   end
 
