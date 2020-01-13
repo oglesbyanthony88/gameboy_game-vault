@@ -19,7 +19,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect '/login'
     else
-      redirect '/signup', alert: "Username in use! Try again."
+      redirect '/signup', flash: "Username in use! Try again."
     end
   end
 
