@@ -20,12 +20,6 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect '/login'
     else
-      if user.errors.messages[:username]
-        redirect '/failure'
-      end
-      if user.errors.messages[:password]
-        redirect '/failure'
-      end
       redirect '/signup'
     end
   end
