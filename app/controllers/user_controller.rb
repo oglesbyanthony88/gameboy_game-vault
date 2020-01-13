@@ -15,7 +15,6 @@ class UsersController < ApplicationController
 
   post '/signup' do
     user = User.new(:username => params[:username], :password => params[:password])
-    validates_uniqueness_of :username
     if user.save
       session[:user_id] = user.id
       redirect '/login'
