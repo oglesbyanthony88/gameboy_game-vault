@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     user = User.new(:username => params[:username], :password => params[:password])
     if user.save
       session[:user_id] = user.id
-      redirect '/login'
+      redirect '/'
     else
       flash[:notice] = "Invalid Username. Try again"
       redirect '/signup'
