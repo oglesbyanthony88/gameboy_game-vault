@@ -19,7 +19,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       redirect '/login'
     else
-      flash[:error] = "Invalid Username. Try again"
+      flash[:notice] = "Invalid Username. Try again"
       redirect '/signup'
     end
   end
