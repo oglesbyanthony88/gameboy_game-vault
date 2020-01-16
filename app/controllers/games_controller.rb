@@ -10,7 +10,7 @@ class GamesController < ApplicationController
     end
   end
 
-  get '/games/addgame' do
+  get '/games/new' do
     if logged_in?
       erb :'games/addgame'
     else
@@ -70,7 +70,7 @@ class GamesController < ApplicationController
       redirect to '/login'
   end
 
-  delete '/games/:id/delete' do
+  delete '/games/:id' do
     if logged_in?
       get_game
       if @game && @game.user == current_user
