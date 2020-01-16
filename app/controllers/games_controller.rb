@@ -3,7 +3,7 @@ class GamesController < ApplicationController
   
   get '/library' do
     if logged_in?
-      @games = Game.all
+      @games = current_user.games
       erb :'/library'
     else
       redirect to '/login'
@@ -58,9 +58,7 @@ class GamesController < ApplicationController
     if logged_in?
         get_game
         if @game && @game.user == current_user
-          if @game.update(gamename: params[:gamename], console_format: params[:console_format],
-         developer:  params[:developer], publisher: params[:publisher], authentic: params[:authentic],
-          releasedate: params[:releasedate], condition: params[:condition])
+          if @game.update(params)
             redirect to "/games/#{@game.id}"
           else
             redirect to "/games/#{@game.id}/edit"
