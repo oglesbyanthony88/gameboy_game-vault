@@ -10,7 +10,6 @@
 
 #### Attributes:
 
-* SLUG(could be an attribute or an instance method)
 * email
 * name
 

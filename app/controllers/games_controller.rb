@@ -19,9 +19,7 @@ class GamesController < ApplicationController
 
   post '/games' do
     if logged_in?
-        @game = current_user.games.build(gamename: params[:gamename], console_format: params[:console_format],
-         developer:  params[:developer], publisher: params[:publisher], authentic: params[:authentic],
-          releasedate: params[:releasedate], condition: params[:condition])
+        @game = current_user.games.build(params)
         @game.save
         redirect to "/games/#{@game.id}"
     else
