@@ -1,4 +1,5 @@
 class GamesController < ApplicationController
+
   
   get '/library' do
     if logged_in?
@@ -29,7 +30,7 @@ class GamesController < ApplicationController
 
   get '/games/:id' do
     if logged_in?
-      @game = Game.find_by_id(params[:id])
+      get_game
       if @game && @game.user == current_user
         erb :'games/showgame'
       else
@@ -42,7 +43,7 @@ class GamesController < ApplicationController
 
   get '/games/:id/edit' do
     if logged_in?
-      @game = Game.find_by_id(params[:id])
+      get_game
       if @game && @game.user == current_user
         erb :'games/editgame'
       else
@@ -55,7 +56,7 @@ class GamesController < ApplicationController
 
   patch '/games/:id' do
     if logged_in?
-        @game = Game.find_by_id(params[:id])
+        get_game
         if @game && @game.user == current_user
           if @game.update(gamename: params[:gamename], console_format: params[:console_format],
          developer:  params[:developer], publisher: params[:publisher], authentic: params[:authentic],
@@ -73,7 +74,7 @@ class GamesController < ApplicationController
 
   delete '/games/:id/delete' do
     if logged_in?
-      @game = Game.find_by_id(params[:id])
+      get_game
       if @game && @game.user == current_user
         @game.delete
       end
@@ -82,4 +83,11 @@ class GamesController < ApplicationController
       redirect to '/login'
     end
   end
+
+  private 
+
+    def get_game
+       @game = Game.find_by_id(params[:id])
+     end
  end
+
